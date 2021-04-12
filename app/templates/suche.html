@@ -1,0 +1,50 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h5>Tiere</h5>
+<table>
+    {% for tier in result.animals %}
+        <tr>
+            <td>{{ tier.name }}</td>
+            <td>{{ tier.age }}</td>
+            <td>{{ tier.art }}</td>
+            <td>{{ tier.color }}</td>
+            <td>{{ tier.weight }}</td>
+            <td>{{ tier.gender }}</td>
+            <td>{{ tier.nutrition }}</td>
+            <td>{{ tier.height }}</td>
+            <td>{{ tier.area }}</td>
+            <td>{{ tier.staff }}</td>
+            <td><a href="?route=delete_animal&animalid={{ tier.idanimals }}">X</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+<h5>Bereiche</h5>
+<table>
+{% for bereich in result.areas %}
+    <tr>
+        <td>{{ bereich.name }}</td>
+        <td>{{ bereich.area }}</td>
+        <td>{{ bereich.number_of_animals }}</td>
+
+        <td><a href="?route=delete_area&areaid={{ bereich.idarea }}">X</a></td>
+    </tr>
+{% endfor %}
+</table>
+
+<h5>Personal</h5>
+
+<table>
+    {% for person in result.staff %}
+        <tr>
+            <td>{{ person.name }}</td>
+            <td>{{ person.job }}</td>
+            <td>{{ person.zoo_area }}</td>
+            <td>{{ person.age }}</td>
+            <td>{{ person.employee_since }}</td>
+            <td><a href="?route=delete_employee&staffid={{ person.idstaff }}">X</a></td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}

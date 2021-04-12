@@ -1,0 +1,24 @@
+{% extends "index.html" %}
+
+{% block content %}
+<table>
+{% for person in personal %}
+    <tr>
+        <td>{{ person.name }}</td>
+        <td>{{ person.job }}</td>
+        <td>{{ person.zoo_area }}</td>
+        <td>{{ person.age }}</td>
+        <td>{{ person.employee_since }}</td>
+        <td><a href="?route=delete_employee&staffid={{ person.idstaff }}">X</a></td>
+    </tr>
+{% endfor %}
+</table>
+<form method="POST">
+    <input type="text" name="name" id="name" placeholder="Name der Mitarbeiter">
+    <input type="text" name="job" id="job" placeholder="Job">
+    <input type="text" name="zoo_area" id="zoo_area" placeholder="Zoo-Bereich">
+    <input type="text" name="age" id="age" placeholder="Alter">
+    <input type="date" name="employee_since" id="employee_since" placeholder="angestellt seit">
+    <button type="submit">Senden</button>
+</form>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+
+{% block content %}
+<table>
+{% for tier in tiere %}
+    <tr>
+        <td>{{ tier.name }}</td>
+        <td>{{ tier.age }}</td>
+        <td>{{ tier.art }}</td>
+        <td>{{ tier.color }}</td>
+        <td>{{ tier.weight }}</td>
+        <td>{{ tier.gender }}</td>
+        <td>{{ tier.nutrition }}</td>
+        <td>{{ tier.height }}</td>
+        <td>{{ tier.area }}</td>
+        <td>{{ tier.staff }}</td>
+        <td><a href="?route=delete_animal&animalid={{ tier.idanimals }}">X</a></td>
+    </tr>
+{% endfor %}
+
+</table>
+<form method="POST">
+    <input type="text" name="name" id="name" placeholder="Tiername">
+    <input type="text" name="age" id="age" placeholder="Tieralter">
+    <input type="text" name="art" id="art" placeholder="Spezies">
+    <input type="text" name="color" id="color" placeholder="Farbe">
+    <input type="text" name="weight" id="weight" placeholder="Gewicht">
+    <input type="text" name="gender" id="gender" placeholder="Geschlecht">
+    <input type="text" name="nutrition" id="nutrition" placeholder="Ernährung">
+    <input type="text" name="height" id="height" placeholder="Höhe">
+    <input type="text" name="area" id="area" placeholder="Bereich">
+    <input type="text" name="staff" id="staff" placeholder="Mitarbeiter/n">
+    <button type="submit">Senden</button>
+</form>
+{% endblock %}
